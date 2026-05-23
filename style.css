@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.98 0 0);
+  --muted-foreground: oklch(0.55 0 0);
+  --accent: oklch(0.78 0.14 180);
+
+  font-family: "Geist", "Inter", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+  Fallback utilities for projects/editors that do not understand Tailwind-v4 theme syntax.
+  These match the custom classes used in your countdown component.
+*/
+.bg-background {
+  background-color: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
+}
+
+.text-foreground\/90 {
+  color: color-mix(in oklch, var(--foreground) 90%, transparent);
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.bg-foreground\/15 {
+  background-color: color-mix(in oklch, var(--foreground) 15%, transparent);
+}
+
+.font-display {
+  font-family: "Geist", "Inter", system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@keyframes digit-in {
+  from {
+    opacity: 0;
+    transform: translateY(70%) scale(0.95);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes digit-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-70%) scale(0.95);
+    filter: blur(6px);
+  }
+}
+
+@keyframes ring-pulse {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+
+  20% {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.6);
+  }
+}
+
+@keyframes accent-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(-10%, -10%) scale(1);
+  }
+
+  50% {
+    transform: translate(15%, 10%) scale(1.15);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(10%, 15%) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-15%, -5%) scale(0.95);
+  }
+}
+
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translate(5%, -15%) scale(1);
+  }
+
+  50% {
+    transform: translate(-10%, 10%) scale(1.2);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
