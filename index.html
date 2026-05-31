@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Countdown — Update 29.05.2026</title>
-  <meta name="description" content="Changes were made. Der Countdown läuft." />
+  <title>Countdown — Update 07.06.2026</title>
+  <meta name="description" content="You will see. Der Countdown läuft." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" />
@@ -144,10 +144,23 @@
       letter-spacing: -0.065em;
     }
 
-    h1 span {
+    h1 .purple,
+    .live .purple {
       color: var(--accent);
       font-weight: 700;
       text-shadow: 0 0 26px rgb(124 124 255 / 0.42);
+    }
+
+    h1 .red,
+    .live .red {
+      color: #ff3b3b;
+      font-weight: 700;
+      text-shadow:
+        0 0 6px rgb(255 59 59 / 0.95),
+        0 0 14px rgb(255 59 59 / 0.88),
+        0 0 28px rgb(255 40 40 / 0.80),
+        0 0 46px rgb(255 0 0 / 0.66),
+        0 0 78px rgb(255 0 0 / 0.50);
     }
 
     h1 {
@@ -298,7 +311,7 @@
     <section class="hero">
       <div class="badge">v0.2 — soon on GitHub</div>
 
-      <h1><span>Changes</span> were made</h1>
+      <h1><span class="purple">You will</span> <span class="red">see</span></h1>
       <!-- Ich weiß dass du das Ließt, warum auch immer, auf jedenfall wird Dario möglicherweise ein zweites Hauptprojekt. Der Porn Blocker wird nicht vergessen! -->
       <!-- Jetzt geh raus aus dem Skript du hast hier nichts zu suchen hier ist nichts. -->
 
@@ -325,13 +338,13 @@
       </div>
 
       <div class="line"></div>
-      <p class="date">29.05.2026 · 23:59</p>
-      <p class="live" id="liveText"><span>Changes</span> were made</p>
+      <p class="date">07.06.2026 · 23:59</p>
+      <p class="live" id="liveText"><span class="purple">You will</span> <span class="red">see</span></p>
     </section>
   </main>
 
   <script>
-    const TARGET = new Date("2026-05-29T23:59:00+02:00").getTime();
+    const TARGET = new Date("2026-06-07T23:59:00+02:00").getTime();
 
     const elements = {
       days: document.getElementById("days"),
