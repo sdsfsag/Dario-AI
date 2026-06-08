@@ -135,7 +135,7 @@ The exact requirements may vary depending on the selected edition (You can read 
 
 ## Privacy
 
-We do follow a strict privacy policy, read more at: [Privacy]([https://github.com/sdsfsag/Dario-AI/blob/main/Privacy.md])
+We do follow a strict privacy policy, read more at: [Privacy](https://github.com/sdsfsag/Dario-AI/blob/main/Privacy.md)
 
 ## Security
 
