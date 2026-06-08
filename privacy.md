@@ -1,4 +1,4 @@
-# Privacy Policy
+# The strict Privacy Policy
 
 Dario AI is designed to run as many features as possible locally on the user's computer.
 
