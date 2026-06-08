@@ -1,1 +1,14 @@
+v1.0:
+New editions:
+  Dario Lite,
+  Dario,
+  Dario PRO
 
+Dario, Dario PRO:
+  Has access to your screen
+
+v0.2:
+  UI was added.
+  Ollama doesn't need to be pre-installed anymore.
+  Ollama doesn't need to be pre-started anymore.
+  Got more stable
