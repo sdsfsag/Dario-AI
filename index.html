@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dario AI</title>
-
+  <title>Countdown — Update 07.06.2026</title>
+  <meta name="description" content="You will see. Der Countdown läuft." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700&family=Geist+Mono:wght@400;500&display=swap" />
   <style>
     :root {
       color-scheme: dark;
       --background: #050508;
       --foreground: #f5f5f7;
-      --green: #39ff14;
+      --muted: #9ca3af;
+      --accent: #7c7cff;
     }
 
     * {
@@ -48,14 +52,14 @@
       pointer-events: none;
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(circle at 50% 45%, rgb(57 255 20 / 0.07), transparent 30%),
-        radial-gradient(ellipse at center, transparent 30%, rgb(5 5 8 / 0.94) 90%);
+      background: radial-gradient(ellipse at center, transparent 30%, rgb(5 5 8 / 0.94) 90%);
     }
+
+
 
     .rings {
       pointer-events: none;
-      position: fixed;
+      position: absolute;
       inset: 0;
       z-index: 0;
       display: flex;
@@ -68,12 +72,12 @@
       position: absolute;
       width: 40vmin;
       height: 40vmin;
-      border: 1.5px solid rgb(57 255 20 / 0.55);
+      border: 1.5px solid rgb(124 124 255 / 0.68);
       border-radius: 999px;
       opacity: 0;
-      transform: scale(0.2);
+      transform: translate(-50%, -50%) scale(0.2);
       animation: ring-pulse 12s linear infinite;
-      box-shadow: 0 0 40px rgb(57 255 20 / 0.22);
+      box-shadow: 0 0 46px rgb(124 124 255 / 0.28);
     }
 
     .ring:nth-child(1) { animation-delay: 0s; }
@@ -88,11 +92,9 @@
         transform: scale(0.2);
         opacity: 0;
       }
-
       20% {
-        opacity: 0.62;
+        opacity: 0.72;
       }
-
       100% {
         transform: scale(2.25);
         opacity: 0;
@@ -108,93 +110,136 @@
       align-items: center;
       justify-content: center;
       padding: clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1050px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
 
-    .card {
-      position: relative;
-      width: min(100%, 1050px);
-      padding: clamp(2rem, 6vw, 5rem);
-      border: 1px solid rgb(255 255 255 / 0.08);
-      border-radius: 34px;
-      background: transparent;
-      box-shadow:
-        0 0 0 1px rgb(57 255 20 / 0.06),
-        inset 0 1px 0 rgb(255 255 255 / 0.06);
-      overflow: hidden;
+    .badge,
+    .subtitle,
+    .date,
+    .label {
+      color: var(--muted);
+      text-transform: uppercase;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgb(57 255 20 / 0.25),
-        transparent
-      );
-      transform: translateX(-100%);
-      animation: scan 5.5s ease-in-out infinite;
-      opacity: 0.45;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      width: 55%;
-      height: 1px;
-      transform: translateX(-50%);
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgb(57 255 20 / 0.75),
-        transparent
-      );
-      box-shadow: 0 0 18px rgb(57 255 20 / 0.35);
-    }
-
-    @keyframes scan {
-      0%, 35% {
-        transform: translateX(-120%);
-      }
-
-      65%, 100% {
-        transform: translateX(120%);
-      }
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
+    .badge {
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(0.65rem, 1.7vw, 0.78rem);
+      letter-spacing: 0.46em;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.45rem, 6.5vw, 6.4rem);
-      font-weight: 700;
-      line-height: 1.02;
-      letter-spacing: -0.06em;
-      color: var(--green);
-      text-wrap: balance;
-      text-shadow:
-        0 0 5px rgb(57 255 20 / 0.38),
-        0 0 16px rgb(57 255 20 / 0.22),
-        0 0 34px rgb(57 255 20 / 0.12);
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.065em;
     }
 
-    .subline {
-      width: min(100%, 460px);
+    h1 .purple,
+    .live .purple {
+      color: var(--accent);
+      font-weight: 700;
+      text-shadow: 0 0 26px rgb(124 124 255 / 0.42);
+    }
+
+    h1 .red,
+    .live .red {
+      color: #ff3b3b;
+      font-weight: 700;
+      text-shadow:
+        0 0 6px rgb(255 59 59 / 0.95),
+        0 0 14px rgb(255 59 59 / 0.88),
+        0 0 28px rgb(255 40 40 / 0.80),
+        0 0 46px rgb(255 0 0 / 0.66),
+        0 0 78px rgb(255 0 0 / 0.50);
+    }
+
+    h1 {
+      margin-bottom: clamp(3rem, 7vw, 5.5rem);
+    }
+
+    .subtitle {
+      margin: clamp(1.15rem, 2.7vw, 1.7rem) 0 clamp(3rem, 7vw, 5.5rem);
+      font-size: clamp(0.72rem, 2vw, 0.9rem);
+      letter-spacing: 0.34em;
+    }
+
+    .countdown {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: clamp(0.45rem, 2.5vw, 2.2rem);
+      width: 100%;
+      margin-bottom: clamp(2.4rem, 5vw, 3.5rem);
+    }
+
+    .unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.55rem, 1.4vw, 0.9rem);
+      min-width: clamp(3.4rem, 11vw, 8rem);
+    }
+
+    .number,
+    .separator {
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: clamp(3.1rem, 10vw, 8.5rem);
+      font-weight: 400;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.08em;
+      white-space: nowrap;
+    }
+
+    .separator {
+      min-width: 0.22em;
+      color: rgb(245 245 247 / 0.86);
+      letter-spacing: 0;
+      transform: translateY(-0.04em);
+      user-select: none;
+    }
+
+    .label {
+      font-size: clamp(0.56rem, 1.45vw, 0.68rem);
+      letter-spacing: 0.38em;
+      white-space: nowrap;
+    }
+
+    .line {
+      width: 8rem;
       height: 1px;
-      margin: clamp(1.7rem, 4vw, 2.6rem) auto 0;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgb(57 255 20 / 0.5),
-        transparent
-      );
+      margin-bottom: 1.5rem;
+      background: rgb(245 245 247 / 0.16);
+    }
+
+    .date {
+      margin: 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.46em;
+    }
+
+    .live {
+      display: none;
+      margin: 2.2rem 0 0;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    .live span {
+      color: var(--accent);
+      font-weight: 700;
+      text-shadow: 0 0 18px rgb(124 124 255 / 0.38);
     }
 
     @media (max-width: 700px) {
@@ -204,37 +249,140 @@
       }
 
       main {
-        padding: 1.1rem;
+        align-items: flex-start;
+        padding-top: 4.5rem;
       }
 
-      .card {
-        border-radius: 24px;
-        padding: 2rem 1.3rem;
+      .countdown {
+        gap: 0.35rem;
       }
 
-      h1 {
-        font-size: clamp(2rem, 11vw, 4rem);
+      .unit {
+        min-width: 3.7rem;
+      }
+
+      .number,
+      .separator {
+        font-size: clamp(2.35rem, 13vw, 4.2rem);
+      }
+
+      .badge,
+      .date {
+        letter-spacing: 0.28em;
+      }
+
+      .subtitle,
+      .label {
+        letter-spacing: 0.22em;
+      }
+    }
+
+    @media (max-width: 430px) {
+      main {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+      }
+
+      .unit {
+        min-width: 3rem;
+      }
+
+      .number,
+      .separator {
+        font-size: clamp(2rem, 12vw, 3.2rem);
+      }
+
+      .label {
+        font-size: 0.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="rings" aria-hidden="true">
-    <span class="ring"></span>
-    <span class="ring"></span>
-    <span class="ring"></span>
-    <span class="ring"></span>
-    <span class="ring"></span>
-    <span class="ring"></span>
-  </div>
-
   <main>
-    <section class="card">
-      <div class="content">
-        <h1>So much is currently blocking me from developing</h1>
-        <div class="subline"></div>
+    <div class="rings" aria-hidden="true">
+      <span class="ring"></span>
+      <span class="ring"></span>
+      <span class="ring"></span>
+      <span class="ring"></span>
+      <span class="ring"></span>
+      <span class="ring"></span>
+    </div>
+    <section class="hero">
+      <div class="badge">v1.0 — soon on GitHub</div>
+
+      <h1><span class="purple">You will</span> <span class="red">see</span></h1>
+      <!-- Ich weiß dass du das Ließt, warum auch immer, auf jedenfall wird Dario möglicherweise ein zweites Hauptprojekt. Der Porn Blocker wird nicht vergessen! -->
+      <!-- Jetzt geh raus aus dem Skript du hast hier nichts zu suchen hier ist nichts. -->
+
+      <div class="countdown" aria-live="polite">
+        <div class="unit">
+          <div class="number" id="days">00</div>
+          <div class="label">Tage</div>
+        </div>
+        <div class="separator" aria-hidden="true">:</div>
+        <div class="unit">
+          <div class="number" id="hours">00</div>
+          <div class="label">Std</div>
+        </div>
+        <div class="separator" aria-hidden="true">:</div>
+        <div class="unit">
+          <div class="number" id="minutes">00</div>
+          <div class="label">Min</div>
+        </div>
+        <div class="separator" aria-hidden="true">:</div>
+        <div class="unit">
+          <div class="number" id="seconds">00</div>
+          <div class="label">Sek</div>
+        </div>
       </div>
+
+      <div class="line"></div>
+      <p class="date">07.06.2026 · 23:59</p>
+      <p class="live" id="liveText"><span class="purple">You will</span> <span class="red">see</span></p>
     </section>
   </main>
+
+  <script>
+    const TARGET = new Date("2026-06-07T23:59:00+02:00").getTime();
+
+    const elements = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds"),
+    };
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function getRemaining() {
+      const diff = Math.max(0, TARGET - Date.now());
+
+      return {
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff / 3600000) % 24),
+        minutes: Math.floor((diff / 60000) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+        done: diff <= 0,
+      };
+    }
+
+    function tick() {
+      const t = getRemaining();
+
+      elements.days.textContent = pad(t.days);
+      elements.hours.textContent = pad(t.hours);
+      elements.minutes.textContent = pad(t.minutes);
+      elements.seconds.textContent = pad(t.seconds);
+      if (t.done) {
+        clearInterval(timer);
+      }
+    }
+
+    tick();
+    const timer = setInterval(tick, 1000);
+  </script>
 </body>
 </html>
