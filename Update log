@@ -1,3 +1,33 @@
+v1.1:
+Dario Lite:
+  Besserer Assistenz Modus - 2,5x-4x schlauer
+  Politisch neutral
+  Erfasst anhand IP die Wetter Daten
+  Coding Modus wurde spezialisiert verbessert
+  Beim ersten Start gibt es ein Warn/Hinweis feld, zur aufklärung über Dario
+  Dario ist nun bewusster drüber wer er und was er eigentlich ist, welche Funktionen er hat und wie stark er sich verbessert hat im vergleich zu den letzten Versionen
+
+Dario standart:
+  Neue UI
+  Politisch neutral
+  Erfasst anhand IP die Wetter Daten
+  Besserer Assistenz Modus - 1,5x-2x schlauer
+  Coding Modus wurde spezialisiert verbessert
+  Beim ersten Start gibt es ein Warn/Hinweis feld, zur aufklärung über Dario
+  Dario ist nun bewusster drüber wer er und was er eigentlich ist, welche Funktionen er hat und wie stark er sich verbessert hat im vergleich zu den letzten Versionen
+
+Dario Pro:
+  Neue UI
+  Politisch neutral
+  Erfasst anhand IP die Wetter Daten
+  Besserer Assistenz Modus - 1,2x-1,6x schlauer, ~ 1x-1,3x schneller
+  Bessere Screen recognition - 1,8x-2,8x schlauer
+  Coding Modus wurde spezialisiert verbessert
+  Beim ersten Start gibt es ein Warn/Hinweis feld, zur aufklärung über Dario
+  Dario ist nun bewusster drüber wer er und was er eigentlich ist, welche Funktionen er hat und wie stark er sich verbessert hat im vergleich zu den letzten Versionen
+
+-
+
 v1.0:
 New editions:
   Dario Lite,
@@ -6,6 +36,8 @@ New editions:
 
 Dario, Dario PRO:
   Has access to your screen
+
+-
 
 v0.2:
   UI was added.
