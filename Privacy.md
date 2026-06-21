@@ -102,8 +102,6 @@ These may include services for:
 
 External services have their own privacy policies. Dario AI cannot fully control how third-party services process data on their systems.
 
-If you want maximum privacy, you should use local features whenever possible and avoid or disable external services if Dario AI provides such options.
-
 ## Developer Access
 
 The developer of Dario AI does not have direct access to:
