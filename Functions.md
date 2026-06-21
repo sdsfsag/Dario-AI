@@ -4,7 +4,7 @@
 
   Dario AI can respond to voice commands and speak to the user.
 
-## Locale ai
+## Local ai
 
   Dario AI uses local AI models via Ollama.
 
