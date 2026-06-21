@@ -116,21 +116,6 @@ The developer of Dario AI does not have direct access to:
 
 Dario AI does not automatically send this data to the developer.
 
-## User Responsibility
-
-The user is responsible for what information they share with Dario AI.
-
-You should avoid entering highly sensitive information if you are not sure whether the used feature runs fully locally.
-
-This includes, for example:
-
-* passwords
-* private login credentials
-* banking information
-* secret documents
-* confidential personal information
-* private information about other people
-
 ## Temporary Files
 
 Dario AI may create temporary files so that certain features can work properly.
